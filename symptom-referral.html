@@ -25,27 +25,13 @@
 
         <script>
             $(document).ready(function(){
-                $('#language-picker').selectpicker('refresh');
-                $('#next').on('click', function(){
-                    var lang = $('#language-picker').val();
-                    console.log(lang);
-                   window.location = 'date-entry.html?' + querystring.stringify({'lang':lang}); 
-                });
+
             });
         </script>
 	</head>
 	<body>
         <div class='center-container'>
-            <image width="300" src="images/welcome.jpg"></image>
-            <br>
-            Welcome to MatNav, select your language<br>
-            <select id="language-picker" class="selectpicker">
-                <option>English</option>
-                <option>Arabic</option>
-            </select><br>
-            <button id='next'>
-                Next
-            </button>    
+          
         </div>
     </body>
 </html>
