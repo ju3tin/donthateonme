@@ -1,0 +1,86 @@
+<html>
+	<head>
+        <!-- Jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <!-- Bootstrap + Fontawesome-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="../js/moment.js"></script>
+        <!-- Datepicker -->
+        <link rel="stylesheet" href="../external/datetimepicker/bootstrap-datetimepicker.min.css">
+        <script src ="../external/datetimepicker/bootstrap-datetimepicker.js"></script>
+        <!-- Selectpicker -->
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/css/bootstrap-select.min.css' rel='stylesheet' type='text/css'>
+        <script src ='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/js/bootstrap-select.min.js'></script>
+        <!-- Toastr -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' type='text/css'>
+        <!-- Querystring -->
+        <script src="../js/querystring.js"></script>
+        <!-- Stylesheets -->
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,900' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href="../styles/style.css">    
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>I have Symptoms</title>
+
+        <style>
+            #main-card {
+                padding:20px 20px 20px;
+                max-width:450px;
+                position:relative;
+                margin:0 auto;
+            }
+            .action-card {
+                text-align:center;    
+            }
+
+            .well {
+                background:#e74c3c;
+                color:white;
+                font-size:14px;
+                padding:10px;
+            }   
+                     
+            button {
+                width:100%;
+                margin-top:10px;
+            }
+
+            #find-gp {
+                background:white;
+                color:#5a5a5a;
+                padding:5px;
+                border-radius:2px;
+                font-weight:900;
+            }
+        </style>
+	</head>
+	<body>
+        <div class='center-container'>
+            <div id='main-card' class='md-card'>
+                <h3 style='color:#e74c3c'>Urgent Symptoms</h3>
+                <ul>
+                    <li>I have vaginal bleeding</li>
+                    <li>My baby has stopped moving for x days</li>
+                </ul>
+                <div class='well action-card'>
+                    <h3 style='color:white'><i class="fa fa-exclamation-circle"></i> Please call 999 NOW</h3>
+                </div>
+                <h3 style='color:#e74c3c'>Non-Urgent Symptoms</h3>
+                <ul>
+                    <li>I have vaginal bleeding</li>
+                    <li>My baby has stopped moving for x days</li>
+                </ul>
+                <div class='well action-card'>
+                    <h3 style='color:white'><i class="fa fa-exclamation-circle"></i> Please visit your GP.</h3>
+                    <a id='find-gp' href='gp-find.html'>Find a GP now.</a><br>
+                </div>
+                <a href='#' onclick='history.go(-1)'>
+                    <i class='fa fa-chevron-left'></i> Go back
+                </a>    
+            </div>
+        </div>
+    </body>
+</html>
