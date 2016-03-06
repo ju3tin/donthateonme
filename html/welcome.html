@@ -34,6 +34,16 @@
                     console.log(lang);
                    window.location = 'date-entry.html?' + querystring.stringify({'lang':lang}); 
                 });
+
+                
+                    setInterval(function(){
+                        setTimeout(function(){        
+
+                        },4000);
+                    }, 6000);
+                
+
+                
             });
         </script>
         <style>
@@ -99,12 +109,24 @@
             <div id='main-card' class='md-card'>
                 <image id='welcome-img' src="../images/icon.png" style='border:solid 1px rgba(0,0,0,0.1)'></image>
                 <br>
-                <h2>Welcome to MatNav</h2>
-                <h5 style='max-width:250px; margin:0 auto'>
-                    MatNav is a multi-language guide to antenatal care in the UK
-                </h5>
-                <br>
-                Please select your language<br><br>
+                <span style='min-height:100px; display:block;'>
+                    <span id='english' class='lang'>
+                        <h2>Welcome to MatNav</h2>
+                        <h5 style='max-width:250px; margin:0 auto'>
+                            MatNav is a multi-language guide to antenatal care in the UK
+                        </h5>
+                        <br>
+                        Please select your language<br><br>
+                    </span>
+                    <span id='french' class='lang' style='display:none'>
+                        <h2>Bienvenue a MatNav</h2>
+                        <h5 style='max-width:250px; margin:0 auto'>
+                            Manav est un guide multilingue aux soins prenatals au Royaume-Uni.
+                        </h5>
+                        <br>
+                        S'il vous plait choisir votre langue<br><br>
+                    </span>
+                </span>
                 <select id="language-picker" class="selectpicker">
                     <option>English</option>
                     <option>Arabic</option>

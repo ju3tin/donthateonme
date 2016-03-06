@@ -103,21 +103,47 @@
 		.overlay-btn:hover {
 			background:#009688;
 		}
+
+		@media screen and (max-width:560px) {
+			.overlay-btn {
+				left:75%;
+			}
+		}
+		@media screen and (max-width:430px) {
+			.overlay-btn {
+				left:70%;
+			}
+		}
+		@media screen and (max-width:350px) {
+			.overlay-btn {
+				left:65%;
+			}
+		}
 	</style>
 	<script>
-		function deleteDiv(){
-			$(this).hide();
-		}
-		$(document).ready(function(){
-			var qs = querystring.parse();
-			for (var i = 1; i <= qs.id; i++) {
-				$('#step-' + i).hide();
-			}
+		// function deleteDiv(this){
+		// 	$(this).hide();
+		// }
+
+		function importantHide() {
 			$('.important').show();
 			$('.important .important-show').show();
 			$('.important .important-hide').hide();
 			$('.important .cd-timeline-img').css('background', '#e74c3c');
 			$('.important .cd-timeline-img').html('<i class="fa fa-exclamation-circle"></i>');
+		}
+		$(document).ready(function(){
+			var qs = querystring.parse();
+			console.log(qs.id);
+			if (qs.id === undefined) {
+				$('#timeline-your').hide();
+			}
+
+			for (var i = 1; i <= qs.id; i++) {
+				$('#step-' + i).hide();
+			}
+			
+			importantHide();
 
 			$('.overlay-btn').on('click', function(){
 				for (var i = 1; i < 15; i++) {
@@ -155,7 +181,7 @@
 			<div class="cd-timeline-content md-card">
 				<h2>First contact with GP</h2>
 				<h3><i class="fa fa-clock-o"></i> Start</h3>
-				<p>Get in touch with your GP, to ensure he knows about your pregnancy and can direct you to appropriate tests. If you have already done this, <a onclick='deleteDiv();'>click here</a> to delete.</p>
+				<p>Get in touch with your GP, to ensure he knows about your pregnancy and can direct you to appropriate tests. If you have already done this, <a onclick='deleteDiv(this);'>click here</a> to delete.</p>
 				<div class='important-show' style='display:none; color:#e74c3c; margin-bottom:20px'>
 					<i class='fa fa-exclamation-circle'></i> Please ensure you have completed this step
 				</div>
