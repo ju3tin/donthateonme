@@ -56,8 +56,6 @@
                 font-weight:900;
             }
             #back {
-                background:#4AA197;
-                color:white;
                 height:40px;
                 line-height:40px;
                 display:block;
@@ -90,8 +88,9 @@
         <div class='center-container'>
             <div class='row'>
                 <div class='col-sm-6'>
-                    <div class='md-card main-card' style='margin-top:0;border-bottom: solid 6px #e74c3c;'>
-                        <h3 style='color:#e74c3c'>Urgent Symptoms</h3>
+                    <div class='md-card main-card' style='color:white'>
+                        <h3 style='color:#fff'>Urgent Symptoms</h3>
+                        </br>
                         <ul style='min-height:130px'>
                             <li>Extreme vomiting</li>
                             <li>Intense abdominal pain</li>
@@ -100,33 +99,32 @@
                             <li>Severe Headache</li>
                             <li>Lack of fetal movement</li>
                         </ul>
-                        <div class='well action-card' style='background:#e74c3c;'>
-                            <h3 style='color:white'><i class="fa fa-exclamation-circle"></i> Please call 999 NOW </h3>
-                            <br>
-                            <a id='find-gp' href='gp-find.html'>Call Now <i class='fa fa-chevron-right'></i></a><br>
-                        </div>
+                        <a href='http://84c65188.ngrok.io/calls.php'>
+                            <button class='our-blue' style='background:#e74c3c;max-width:100%'>
+                                Please visit your A+E, or call 999
+                            </button>
+                        </a>
                     </div>    
                 </div>
                 
                 <div id='non-urgent' class='col-sm-6'>
-                    <div class='md-card main-card' style='border-bottom: solid 6px #5a5a5a;'>
-                        <h3 style='color:#5a5a5a'>Non-Urgent Symptoms</h3>
+                    <div class='md-card main-card' style='color:white'>
+                        <h3 style='color:#fff'>Non-Urgent Symptoms</h3>
+                        </br>
                         <ul style='min-height:130px'>
                             <li>Vaginal itching, burning, or redness, and excessive discharge that's creamy or white</li>
                             <li>Itching all over your body, especially your hands and feet</li>
                             <li>Pain or burning when you pee, frequent urination, urine that's cloudy or has blood in it</li>
                         </ul>
-                        <div class='well action-card' style='background:#5a5a5a;'>
-                            <h3 style='color:white'><i class="fa fa-exclamation-circle"></i> Please visit your GP.</h3>
-                            <br>
-                            <a id='find-gp' href='gp-find.html'>Find a GP now  <i class='fa fa-chevron-right'></i></a><br>
-                        </div>
+                        <button class='our-blue' style='max-width:100%'>
+                            Please visit your GP
+                        </button>
                     </div>
                 </div>
             </div>
 
             <a id='back' href='welcome.html' style='margin-top:30px'>
-                <i class='fa fa-chevron-left'></i> Go back
+                <button class='our-blank'>Go back</button>
             </a>    
         </div>
     </body>
