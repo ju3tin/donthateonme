@@ -26,25 +26,7 @@
         <title>Welcome To MatNav</title>
 
         <style>
-            button {
-                width:100%;
-                height:40px;
-                margin-top:3px;
-                border:solid 1px rgba(0,0,0,0.1);
-                border-radius:5px;
-                background:#4aa197;
-                color:white;
-                outline:none;
-            }
 
-            .md-card { 
-                max-width:450px; 
-                position:relative;
-                margin:0 auto;
-            }
-            button span {
-                margin-left:12px;
-            }
         </style>
         <script>
         $(document).ready(function(){
@@ -61,21 +43,25 @@
         </script>
 	</head>
 	<body>
-        <div class='center-container'>
-            <div class='md-card' style='padding:5px 20px 20px'>
-                <h3>
-                    Do you have a Midwife?
-                </h3>
-                <button id='yes'>Yes <span class='glyphicon glyphicon-ok'></span></button>
-                <button id='no'>No <span class='glyphicon glyphicon-remove'></span></button>
-                <br>
-                <br>
-                <div class='well'>
-                    <b style='color:#4AA197'>What is a Midwife?</b>
-                    <br>
-                    A midwife is a nurse, who is trained to assist women in childbirth.
-                </div>
+        <div class='row' style='background:#8c3ca8; height:160px;'>
+            <div class='center-container'>
+                <h5 style='font-size:20px; text-align:center; color:white; font-weight:400'>Do you have a Midwife?</h5>
+                <h6 style='font-size:15px; text-align:center; color:white; font-weight:300; margin-top:50px'>
+                    A midwife is a nurse, who is trained<br>
+                    to assist women in childbirth
+                </h6>
             </div>
         </div>
+
+        <div style='padding:5px 20px 20px'>
+            <div class='center-container' style='text-align:center'>
+                <button id='yes' class='our-blank'>Yes</span></button><br>
+                <button id='no' class='our-blank'>No</span></button>
+            </div>
+        </div>
+
+
+
+        
     </body>
 </html>
