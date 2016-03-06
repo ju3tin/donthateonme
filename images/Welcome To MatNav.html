@@ -1,26 +1,27 @@
-<html>
-	<head>
+
+<!-- saved from url=(0066)file:///Users/edwardmyung/dev/matnav/html/gp-explanation.html?id=1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
         <!-- Jquery -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="./Welcome To MatNav_files/jquery.min.js"></script>
         <!-- Bootstrap + Fontawesome-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <script src="../js/moment.js"></script>
+        <link rel="stylesheet" href="./Welcome To MatNav_files/bootstrap.min.css">
+        <script src="./Welcome To MatNav_files/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./Welcome To MatNav_files/font-awesome.min.css">
+        <script src="./Welcome To MatNav_files/moment.js"></script>
         <!-- Datepicker -->
-        <link rel="stylesheet" href="../external/datetimepicker/bootstrap-datetimepicker.min.css">
-        <script src ="../external/datetimepicker/bootstrap-datetimepicker.js"></script>
+        <link rel="stylesheet" href="./Welcome To MatNav_files/bootstrap-datetimepicker.min.css">
+        <script src="./Welcome To MatNav_files/bootstrap-datetimepicker.js"></script>
         <!-- Selectpicker -->
-        <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/css/bootstrap-select.min.css' rel='stylesheet' type='text/css'>
-        <script src ='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/js/bootstrap-select.min.js'></script>
+        <link href="./Welcome To MatNav_files/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+        <script src="./Welcome To MatNav_files/bootstrap-select.min.js"></script>
         <!-- Toastr -->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' type='text/css'>
+        <script src="./Welcome To MatNav_files/toastr.min.js"></script>
+        <link rel="stylesheet" href="./Welcome To MatNav_files/toastr.min.css" type="text/css">
         <!-- Querystring -->
-        <script src="../js/querystring.js"></script>
+        <script src="./Welcome To MatNav_files/querystring.js"></script>
         <!-- Stylesheets -->
-        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,900' rel='stylesheet' type='text/css'>
-        <link rel='stylesheet' href="../styles/style.css">    
+        <link href="./Welcome To MatNav_files/css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="./Welcome To MatNav_files/style.css">    
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Welcome To MatNav</title>
@@ -38,9 +39,7 @@
             .md-card {
                 background:#8c3ca8;
                 color:white;
-                margin:0 !important;
-                text-align:left;
-                padding:20px 30px;
+                margin:0;
             }
 
             .row {
@@ -58,7 +57,7 @@
             }
             h3, p {
                 color:white;
-                text-align:left;
+                text-align:center;
             }
             h3 {
                 margin-top:30px;
@@ -67,7 +66,7 @@
             p {
                 font-weight:300;
                 font-size:16px;
-                
+                margin-top:20px;
             }
             button {
                 width:100%;
@@ -90,14 +89,16 @@
 	<body>
 
             <div>
-                    <span id='main-span' class='md-card'>
+                
+                
+                    <span id="main-span" class="md-card">
                         To get a Midwife, you <b>must</b> be registered with a General Practitioner.
                         <br>
                         <br>
-                        <i class='fa fa-chevron-down' style='font-size:12px'></i>
+                        <i class="fa fa-chevron-down" style="font-size:12px"></i>
                     </span>
                 
-                    <div class='md-card' style='background:#9f5bb6'>
+                    <div class="md-card">
                         <h3>
                             What is a Midwife?
                         </h3>
@@ -105,7 +106,7 @@
                             A midwife is a nurse, who is trained to assist women in childbirth.
                         </p>
                     </div>
-                    <div class='md-card' style='background:#A464BA'>
+                    <div class="md-card">
                         <h3>
                             What is a General Practitioner?
                         </h3>
@@ -114,7 +115,7 @@
                         </p>
                     </div>
 
-                    <div class='md-card' style='background:#8C3CA8'>
+                    <div class="md-card">
                         <h3>
                             You must go for a first appointment
                         </h3>
@@ -122,27 +123,25 @@
                             If you're due date is while you are in the UK, and you would like to receive antenatal care, you must go to your GP. This may incur additional costs, so please ask your GP about where to get more information, it is your right to know these costs.
                         </p>
                     </div>
-                    <div class='md-card' style='background:#CF6af2'>
+                    <div class="md-card">
                          <h3>
                             My rights to Antenatal Care
                         </h3>
-                        <p style='margin-bottom:30px'>
+                        <p style="margin-bottom:30px">
                             If you are currently a resident in the UK. 
                         </p>
                     </div>
-                    
+                    <br>
 
-                    <div id='expl-group'>
+                    <div id="expl-group">
                         <center>
-                            <button id ='timeline-btn' class='our-blue'>View Antenatal Care Timeline <i class='fa fa-chevron-right'></i></button><br>
-                            <a href='http://www.nhs.uk/Service-Search/GP/LocationSearch/4'>
-                                <button class='our-blank'>Find a GP <i class='fa fa-chevron-right'></i></button>
+                            <button id="timeline-btn" class="our-blue">View Antenatal Care Timeline <i class="fa fa-chevron-right"></i></button><br>
+                            <a href="http://www.nhs.uk/Service-Search/GP/LocationSearch/4">
+                                <button class="our-blank">Find a GP <i class="fa fa-chevron-right"></i></button>
                             </a>
                         </center>
                     </div>
-                    <br>
-                    <br>
             </div>
         
-    </body>
-</html>
+    
+</body></html>

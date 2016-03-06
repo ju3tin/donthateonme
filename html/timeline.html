@@ -21,6 +21,9 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,900' rel='stylesheet' type='text/css'>
 
 	<style>
+		header {
+
+		}
 		h2 span {
 			background:#4AA197;
 			padding:5px;
@@ -41,10 +44,21 @@
 		}
 
 		.cd-timeline-img {
-			background:#4AA197;
-			border:none;
+			background:#fff;
+			border:solid 4px #88bef5;
 			box-shadow:none;
 			text-align:center;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		}
+		.cd-timeline-img img {
+			width:19px;
+			height:17px;
+			margin-left:-10px;
+			margin-top:-9px;
+		}
+
+		.cd-timeline-img.important {
+			background:blue !important;
 		}
 
 		.cd-timeline-img i {
@@ -65,21 +79,15 @@
 		}
 		
 		.cd-read-more {
-			position:relative;
-			float:left;
-			display:block;
-			width:100%;
 			text-decoration:none !important;
-			background:#5a5a5a !important;
-			
 			transition: all 0.40s ease-in-out;
 			-webkit-transition: all 0.40s ease-in-out;
 			-moz-transition: all 0.40s ease-in-out;
 			-ms-transition: all 0.40s ease-in-out;
 			-o-transition: all 0.40s ease-in-out;
 		}
-		.cd-read-more:hover {
-			background:rgba(0,0,0,0.5) !important;
+		.cd-read-more p{
+			color:rgba(0,0,0,1) !important;
 		}
 
 		.overlay-btn {
@@ -89,7 +97,7 @@
 			padding:10px;
 			border-radius:0px 0px 5px 5px;
 			top:0;
-			background:#00796B;
+			background:#E91E63;
 			color:white;
 			left:80%;
 			z-index:100000000;
@@ -101,7 +109,23 @@
 		}
 
 		.overlay-btn:hover {
-			background:#009688;
+			background:#8c3ca8;
+		}
+		.cd-date {
+			color:white;
+		}
+		@media screen and (max-width:1170px) {
+			.cd-date {
+				color:rgba(0,0,0,0.4);
+				font-size:20px !important;
+				font-weight:300;
+			}
+		}
+		@media screen and (max-width:612px) {
+			header h1 {
+				text-align:right;
+				z-index:10000000;
+			}
 		}
 
 		@media screen and (max-width:560px) {
@@ -109,9 +133,22 @@
 				left:75%;
 			}
 		}
+		/*@media screen and (max-width:500px) {
+			.cd-timeline-img img {
+				width:20px !important;
+				height:auto !important;
+				margin-top:-10px;
+				margin-left:-10px;
+			}
+		}*/
 		@media screen and (max-width:430px) {
 			.overlay-btn {
 				left:70%;
+			}
+		}
+		@media screen and (max-width:363px) {
+			header h1 {
+				font-size:20px !important;
 			}
 		}
 		@media screen and (max-width:350px) {
@@ -119,6 +156,7 @@
 				left:65%;
 			}
 		}
+
 
 	</style>
 	<script>
@@ -130,15 +168,14 @@
 			$('.important').show();
 			$('.important .important-show').show();
 			$('.important .important-hide').hide();
-			$('.important .cd-timeline-img').css('background', '#e74c3c');
+			$('.important .cd-timeline-img').css({
+				'background' : '#e74c3c',
+				"border" : "none"
+			});
 			$('.important .cd-timeline-img').html('<i class="fa fa-exclamation-circle"></i>');
 		}
 		$(document).ready(function(){
 			var qs = querystring.parse();
-			console.log(qs.id);
-			if (qs.id === undefined) {
-				$('#timeline-your').hide();
-			}
 
 			for (var i = 1; i <= qs.id; i++) {
 				$('#step-' + i).hide();
@@ -150,7 +187,6 @@
 				for (var i = 1; i < 15; i++) {
 					$('#step-' + i).show();
 				}
-				$('#timeline-your').hide();
 			});
 		});
 		
@@ -160,11 +196,13 @@
 	<title>Responsive Vertical Timeline</title>
 </head>
 <body>
-	<header style='background:#4AA197; color:white'>
-		<h1 style='font-size:20px'>
-			<i class="fa fa-clock-o"></i>
-			<span id ='timeline-your'>Your</span> Timeline
-		</h1>
+	<header style='background:#EAD6E8; color:white; height:250px !important'>
+		<div class='center-container'>
+			<img src='../images/timeline-header.png' height='200' style='position:absolute;left:0; margin-left:30px; margin-top:35px; z-index:1'>
+			<h1 style='font-size:30px; font-weight:300; position:absolute;color:#4a4a4a; right:0; margin-right:20px'>
+				3 months to go!
+			</h1>
+		</div>
 	</header>
 
 	<section id="cd-timeline" class="cd-container">
@@ -173,234 +211,211 @@
 				View All <i class='glyphicon glyphicon-chevron-right'></i>
 			</div>
 		</a>
-
+		
 		<div id='step-1' class="cd-timeline-block important">
 			<div class="cd-timeline-img">
 				<i class="fa fa-calendar-o"></i>
 			</div>
-
-			<div class="cd-timeline-content md-card">
-				<h2>First contact with GP</h2>
-				<h3><i class="fa fa-clock-o"></i> Start</h3>
-				<p>Get in touch with your GP, to ensure he knows about your pregnancy and can direct you to appropriate tests. If you have already done this, <a onclick='deleteDiv(this);'>click here</a> to delete.</p>
-				<div class='important-show' style='display:none; color:#e74c3c; margin-bottom:20px'>
-					<i class='fa fa-exclamation-circle'></i> Please ensure you have completed this step
+			
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>First contact with GP</h2>
+					<h3><i class="fa fa-clock-o"></i> Start</h3>
+					<p>You will need an appointment with a GP to get a referral to a midwife for your antenatal care. </p>
+					<div class='important-show' style='display:none; color:#e74c3c; margin-bottom:20px'>
+						<i class='fa fa-exclamation-circle'></i> Please ensure you have completed this step
+					</div>
+					<span class="cd-date">Jan 14</span>
 				</div>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Jan 14</span>
-			</div>
+			</a>
 		</div>
+
 
 		<div id='step-2' class="cd-timeline-block important">
 			<div class="cd-timeline-img">
 				<i class="fa fa-calendar-o"></i>
 			</div>
-
-			<div class="cd-timeline-content md-card">
-				<h2>Booking appointments</h2>
-				<h3><i class="fa fa-clock-o"></i> 8 - 12 weeks</h3>
-				<p>One or two lines of content</p>
-				<div class='important-show' style='display:none; color:#e74c3c; margin-bottom:20px'>
-					<i class='fa fa-exclamation-circle'></i> Please ensure you have completed this step
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>Booking appointments</h2>
+					<h3><i class="fa fa-clock-o"></i> 8 - 12 weeks</h3>
+					<p>This appointment officially books you in for maternity care. It's best to have it by the time you are 10 weeks pregnant. </p>
+					<div class='important-show' style='display:none; color:#e74c3c; margin-bottom:20px'>
+						<i class='fa fa-exclamation-circle'></i> Please ensure you have completed this step
+					</div>
+					<span class="cd-date">Jan 18</span>
 				</div>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Jan 18</span>
-			</div>
+			</a>
 		</div>
 
 		<div id='step-3' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/ultrasound.png'>
 			</div>
-
-			<div class="cd-timeline-content md-card">
-				<h2>Dating Scan</h2>
-				<h3><i class="fa fa-clock-o"></i> 10 - 14 weeks</h3>
-				<p>One or two lines of conten</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Jan 24</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>Dating Scan</h2>
+					<h3><i class="fa fa-clock-o"></i> 10 - 14 weeks</h3>
+					<p>This is your first ultrasound scan. Its purpose is to give you a more accurate due date. You will be offered optional screening tests during pregnancy to try to find health problems that could affect you or your baby. </p>
+					<span class="cd-date">Jan 24</span>
+				</div>
+			</a>
 		</div>
 
 		<div id='step-4' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/appointment.png'>
 			</div>
-
-			<div class="cd-timeline-content md-card">
-				<h2> 16 week appointment</h2>
-				<h3><i class="fa fa-clock-o"></i> 16 weeks</h3>
-				<p>One or two lines of content</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Feb 14</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2> 16 week appointment</h2>
+					<h3><i class="fa fa-clock-o"></i> 16 weeks</h3>
+					<p>Your midwife will give you information about the ultrasound anomaly scan you will be offered at 18-20 weeks. </p>
+					<span class="cd-date">Feb 14</span>
+				</div>
+			</a>
 		</div>
 
 		<div id='step-5' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/ultrasound.png'>
 			</div>
-			<div class="cd-timeline-content md-card">
-				<h2>Anomaly Scan</h2>
-				<h3><i class="fa fa-clock-o"></i> 18 - 20 weeks</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Feb 18</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>Anomaly Scan</h2>
+					<h3><i class="fa fa-clock-o"></i> 18 - 20 weeks</h3>
+					<p>The purpose of this scan is to check the physical development of your baby and make sure that there are no physical abnormalities.</p>
+					<span class="cd-date">Feb 18</span>
+				</div>
+			</a>
 		</div>
 
 		<div id='step-6' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/appointment.png'>
 			</div>
 
-			<div class="cd-timeline-content md-card">
-				<h2>25 week appointment</h2>
-				<h3><i class="fa fa-clock-o"></i> 25 weeks</h3>
-				<p>This is the content of the last section</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Feb 26</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>25 week appointment</h2>
+					<h3><i class="fa fa-clock-o"></i> 25 weeks</h3>
+					<p>If this is your first baby, you will have an appointment to check your blood pressure, check your urine for protein and measure the size of your uterus. </p>
+					<span class="cd-date">Feb 26</span>
+				</div>
+			</a>
 		</div>
 
 		<div id='step-7' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/appointment.png'>
 			</div>
 
-			<div class="cd-timeline-content md-card">
-				<h2>28 week appointment</h2>
-				<h3><i class="fa fa-clock-o"></i> 28 weeks</h3>
-				<p>This is the content of the last section</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Feb 26</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>28 week appointment</h2>
+					<h3><i class="fa fa-clock-o"></i> 28 weeks</h3>
+					<p>At this appointment you will be offered vaccines and more screening tests in addition to routine health checks. </p>
+					<span class="cd-date">Feb 26</span>
+				</div>
+			</a>
 		</div>
 
 		<div id='step-8' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/appointment.png'>
 			</div> 
-
-			<div class="cd-timeline-content md-card">
-				<h2>31 week appointment</h2>
-				<h3><i class="fa fa-clock-o"></i> 31 weeks</h3>
-				<p>This is the content of the last section</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Feb 26</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>31 week appointment</h2>
+					<h3><i class="fa fa-clock-o"></i> 31 weeks</h3>
+					<p>If this is your first baby, you will have an appointment to check your blood pressure, review the results of screening tests and measure the size of your uterus. </p>
+					<span class="cd-date">Feb 26</span>
+				</div>
+			</a>
 		</div>
 
 		<div id='step-9' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/appointment.png'>
 			</div>
-
-			<div class="cd-timeline-content md-card">
-				<h2>34 week appointment</h2>
-				<h3><i class="fa fa-clock-o"></i> 34 weeks</h3>
-				<p>This is the content of the last section</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Feb 26</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>34 week appointment</h2>
+					<h3><i class="fa fa-clock-o"></i> 34 weeks</h3>
+					<p>At this appointment your midwife will give you information on preparing for birth, including how to know when you are in labour, ways of coping with pain and your birth plan. </p>
+					<span class="cd-date">Feb 26</span>
+				</div>
+			</a>
 		</div>
 		
 		<div id='step-10' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/appointment.png'>
 			</div>
-
-			<div class="cd-timeline-content md-card">
-				<h2>36 week appointment</h2>
-				<h3><i class="fa fa-clock-o"></i> 36 weeks</h3>
-				<p>This is the content of the last section</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Feb 26</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>36 week appointment</h2>
+					<h3><i class="fa fa-clock-o"></i> 36 weeks</h3>
+					<p>At this appointment your midwife will give you information on caring for your baby and looking after your own health after the birth, as well as routine health checks. </p>
+					<span class="cd-date">Feb 26</span>
+				</div>
+			</a>
 		</div>
 
 		<div id='step-11' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/appointment.png'>
 			</div>
-
-			<div class="cd-timeline-content md-card">
-				<h2>38 week appointment</h2>
-				<h3><i class="fa fa-clock-o"></i> 38 weeks</h3>
-				<p>This is the content of the last section</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Feb 26</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>38 week appointment</h2>
+					<h3><i class="fa fa-clock-o"></i> 38 weeks</h3>
+					<p>You will have some routine health checks and discuss the choices you will be offered if your pregnancy lasts longer than 41 weeks. </p>
+					<span class="cd-date">Feb 26</span>
+				</div>
+			</a>
 		</div>
 
 		<div id='step-12' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/appointment.png'>
 			</div>
-
-			<div class="cd-timeline-content md-card">
-				<h2>40 week appointment</h2>
-				<h3><i class="fa fa-clock-o"></i> 40 weeks</h3>
-				<p>This is the content of the last section</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Feb 26</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>40 week appointment</h2>
+					<h3><i class="fa fa-clock-o"></i> 40 weeks</h3>
+					<p>If this is your first baby, you will have an appointment to discuss what happens if your pregnancy lasts longer than 41 weeks and do some routine health checks. </p>
+					<span class="cd-date">Feb 26</span>
+				</div>
+			</a>
 		</div>
 
 		<div id='step-13' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/appointment.png'>
 			</div>
-
-			<div class="cd-timeline-content md-card">
-				<h2>41 week appointment</h2>
-				<h3><i class="fa fa-clock-o"></i> 41 weeks</h3>
-				<p>This is the content of the last section</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Feb 26</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>41 week appointment</h2>
+					<h3><i class="fa fa-clock-o"></i> 41 weeks</h3>
+					<p>At this appointment you will have some routine checks, discuss the options and choices for induction of labour and offer you a membrane sweep. </p>
+					<span class="cd-date">Feb 26</span>
+				</div>
+			</a>
 		</div>
 
 		<div id='step-14' class="cd-timeline-block">
 			<div class="cd-timeline-img">
-				<i class="fa fa-calendar-o"></i>
+				<img src='../images/icons/appointment.png'>
 			</div>
-
-			<div class="cd-timeline-content md-card">
-				<h2>42 week appointment</h2>
-				<h3><i class="fa fa-clock-o"></i> 42 weeks</h3>
-				<p>This is the content of the last section</p>
-				<a href="concept.html" class="cd-read-more">
-					Read more <span class='glyphicon glyphicon-chevron-right'></span>
-				</a>
-				<span class="cd-date">Feb 26</span>
-			</div>
+			<a href="concept.html" class="cd-read-more">
+				<div class="cd-timeline-content">
+					<h2>42 week appointment</h2>
+					<h3><i class="fa fa-clock-o"></i> 42 weeks</h3>
+					<p>If you have not had your baby by 42 weeks and have chosen not to have an induction, you should be offered increased monitoring of the baby.</p>
+					<span class="cd-date">Feb 26</span>
+				</div>
+			</a>
 		</div>
 	</section>
 
