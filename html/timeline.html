@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<!-- Bootstrap + Fontawesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../styles/timeline-reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="../styles/timeline-style.css"> <!-- Resource style -->
+	<script src="../js/modernizr.js"></script> <!-- Modernizr -->
+	<link rel="stylesheet" href="../styles/style.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<!-- Querystring -->
+    <script src="../js/querystring.js"></script>
+	<style>
+		h2 span {
+			background:#4AA197;
+			padding:5px;
+			color:white;
+			border-radius:1px;
+		}
+
+		h3 i {
+			color:rgba(0,0,0,0.2);
+		}
+
+		h3 {
+			height:30px;
+			font-size:22px;
+			font-weight:300;
+			margin-top:15px;
+			color:rgba(0,0,0,0.4);
+		}
+
+		.cd-timeline-img {
+			background:#4AA197;
+			border:none;
+			box-shadow:none;
+			text-align:center;
+		}
+
+		.cd-timeline-img i {
+			color:white;
+			text-align:center;
+			font-size:24px;
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+		
+		.cd-read-more {
+			position:relative;
+			float:left;
+			display:block;
+			width:100%;
+			text-decoration:none !important;
+			background:#5a5a5a !important;
+			transition: all 0.4s ease-in-out;
+		}
+		.cd-read-more:hover {
+			background:rgba(0,0,0,0.5) !important;
+		}
+	</style>
+	<script>
+		function deleteDiv(){
+			$(this).hide();
+		}
+		$(document).ready(function(){
+			var qs = querystring.parse();
+			for (var i = 0; i < qs.div_class; i++) {
+				$('#step-' + i).hide();
+			}
+			$('.important').show();
+			$('.important .important-show').show();
+			$('.important .important-hide').hide();
+			$('.important .cd-timeline-img').css('background', '#e74c3c');
+			$('.important .cd-timeline-img').html('<i class="fa fa-exclamation-circle"></i>');
+		});
+		
+
+		
+	</script>
+	<title>Responsive Vertical Timeline</title>
+</head>
+<body>
+	<header style='background:#4AA197; color:white'>
+		<h1 style='font-size:20px'>
+			<i class="fa fa-clock-o"></i>
+			Your Timeline
+		</h1>
+	</header>
+
+	<section id="cd-timeline" class="cd-container">
+		<div id='step-1' class="cd-timeline-block important">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2>First contact with GP</h2>
+				<h3><i class="fa fa-clock-o"></i> Start</h3>
+				<p>Get in touch with your GP, to ensure he knows about your pregnancy and can direct you to appropriate tests. If you have already done this, <a onclick='deleteDiv();'>click here</a> to delete.</p>
+				<div class='important-show' style='display:none; color:#e74c3c; margin-bottom:20px'>
+					<i class='fa fa-exclamation-circle'></i> Please ensure you have completed this step
+				</div>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Jan 14</span>
+			</div>
+		</div>
+
+		<div id='step-2' class="cd-timeline-block important">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2>Booking appointments</h2>
+				<h3><i class="fa fa-clock-o"></i> 8 - 12 weeks</h3>
+				<p>One or two lines of content</p>
+				<div class='important-show' style='display:none; color:#e74c3c; margin-bottom:20px'>
+					<i class='fa fa-exclamation-circle'></i> Please ensure you have completed this step
+				</div>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Jan 18</span>
+			</div>
+		</div>
+
+		<div id='step-3' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2>Dating Scan</h2>
+				<h3><i class="fa fa-clock-o"></i> 10 - 14 weeks</h3>
+				<p>One or two lines of conten</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Jan 24</span>
+			</div>
+		</div>
+
+		<div id='step-4' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2> 16 week appointment</h2>
+				<h3><i class="fa fa-clock-o"></i> 16 weeks</h3>
+				<p>One or two lines of content</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Feb 14</span>
+			</div>
+		</div>
+
+		<div id='step-5' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+			<div class="cd-timeline-content md-card">
+				<h2>Anomaly Scan</h2>
+				<h3><i class="fa fa-clock-o"></i> 18 - 20 weeks</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Feb 18</span>
+			</div>
+		</div>
+
+		<div id='step-6' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2>25 week appointment</h2>
+				<h3><i class="fa fa-clock-o"></i> 25 weeks</h3>
+				<p>This is the content of the last section</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Feb 26</span>
+			</div>
+		</div>
+
+		<div id='step-7' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2>28 week appointment</h2>
+				<h3><i class="fa fa-clock-o"></i> 28 weeks</h3>
+				<p>This is the content of the last section</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Feb 26</span>
+			</div>
+		</div>
+
+		<div id='step-8' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div> 
+
+			<div class="cd-timeline-content md-card">
+				<h2>31 week appointment</h2>
+				<h3><i class="fa fa-clock-o"></i> 31 weeks</h3>
+				<p>This is the content of the last section</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Feb 26</span>
+			</div>
+		</div>
+
+		<div id='step-9' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2>34 week appointment</h2>
+				<h3><i class="fa fa-clock-o"></i> 34 weeks</h3>
+				<p>This is the content of the last section</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Feb 26</span>
+			</div>
+		</div>
+		
+		<div id='step-10' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2>36 week appointment</h2>
+				<h3><i class="fa fa-clock-o"></i> 36 weeks</h3>
+				<p>This is the content of the last section</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Feb 26</span>
+			</div>
+		</div>
+
+		<div id='step-11' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2>38 week appointment</h2>
+				<h3><i class="fa fa-clock-o"></i> 38 weeks</h3>
+				<p>This is the content of the last section</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Feb 26</span>
+			</div>
+		</div>
+
+		<div id='step-12' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2>40 week appointment</h2>
+				<h3><i class="fa fa-clock-o"></i> 40 weeks</h3>
+				<p>This is the content of the last section</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Feb 26</span>
+			</div>
+		</div>
+
+		<div id='step-13' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2>41 week appointment</h2>
+				<h3><i class="fa fa-clock-o"></i> 41 weeks</h3>
+				<p>This is the content of the last section</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Feb 26</span>
+			</div>
+		</div>
+
+		<div id='step-14' class="cd-timeline-block">
+			<div class="cd-timeline-img">
+				<i class="fa fa-calendar-o"></i>
+			</div>
+
+			<div class="cd-timeline-content md-card">
+				<h2>42 week appointment</h2>
+				<h3><i class="fa fa-clock-o"></i> 42 weeks</h3>
+				<p>This is the content of the last section</p>
+				<a href="concept.html" class="cd-read-more">
+					Read more <span class='glyphicon glyphicon-chevron-right'></span>
+				</a>
+				<span class="cd-date">Feb 26</span>
+			</div>
+		</div>
+	</section>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="../js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>

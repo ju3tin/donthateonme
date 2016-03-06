@@ -33,23 +33,35 @@
 
         #bottom-btn-group button {
             width:100%;
+            max-width:300px;
             border-radius:2px;
             background:#4AA197;
             color:white !important;
             border:solid 1px rgba(0,0,0,0.1);
             margin-top:2px;
+            outline:none;
+        }
+
+        .btn-group button:hover {
+            color:white;
         }
 
         .btn-group button {
             background:rgba(0,0,0,0.3);
             /*border-bottom:solid 3px rgba(0,0,0,0.4);*/
             color:white;
+            outline:none;
         }
 
         .time-picker-btn.selected {
             background:#4AA197 !important;
             color:white;
             outline:none;
+        }
+
+        .time-picker-widget {
+            max-width:300px;
+            margin: 0 auto;
         }
         </style>
         <title>Welcome To MatNav</title>
@@ -84,6 +96,8 @@
                     return 12;
                 if (days < (41 * 7))
                     return 13;
+                if (days < (42 * 7))
+                    return 14;
                 else 
                     return 1;
             }
@@ -108,40 +122,36 @@
                     }
                 });
 
-                $('#btn-visit-as-guest').on('click', function(){
-                    var qs = {
-                        guest_pass : true
-                    };
-                    window.location = 'gp-explanation.html?' + querystring.stringify( qs );
-                });
-
                 $('#btn-go').on('click', function(){
                     var qs;
                     if (panelSelected === 'due-date-picker') {
                         var now = moment().startOf('day');
                         var dueDate = $('#due-date').data("DateTimePicker").date().utc().format('YYYY MM DD');
-                        
                         var diffInDays = now.diff(dueDate, 'days', true);
-                        // console.log(Math.abs(diffInDays));
 
                         var divClass = calculateClass(diffInDays);
                         var qs = {
                             "div_class" : divClass
-                        }
-                        window.location = 'timeline.html?' + querystring.stringify(qs);
+                        };
+                        console.log(qs);
+
+                        window.location = 'midwife-check.html?' + querystring.stringify(qs);
                     }
                     
                     if (panelSelected === 'lmp-picker') {
                         var now = moment().startOf('day');
                         var lmp = $('#lmp-date').data("DateTimePicker").date().utc().format('YYYY MM DD');
-                        
                         var diffInDays = now.diff(lmp, 'days', true);
                         // Naegeles rule -- approx + 280
                         diffInDays += 280;
+                        var divClass = calculateClass(diffInDays);
+                        var qs = {
+                            "div_class" : divClass
+                        };
+                        console.log(qs);
 
+                        window.location = 'midwife-check.html?' + querystring.stringify(qs);
                     }
-
-                    // window.location = 'gp-explanation.html?' + querystring.stringify( qs ); 
                 });
             });
         </script>
@@ -149,6 +159,8 @@
 	<body>
         <div class='center-container'>
             <div class='md-card' style='padding:5px 20px 20px'>
+                <br>
+                <br>
                 <h4 style='text-align:center'>1. Please select a date to enter</h4>
                 <center>
                     <div class="btn-group" role="group" aria-label="Basic example">
@@ -157,31 +169,36 @@
                     </div>    
                 </center>
                 <br>
-                <h4 style='text-align:center'>2. Please enter the date</h4>
-                <div id='due-date-picker' class="time-picker-widget form-group">
-                    <div class='input-group date' id='due-date'>
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
+                <br>
+
+                <span style='padding:1px 20px'>
+                    <h4 style='text-align:center'>2. Please enter the date</h4>
+                    <div id='due-date-picker' class="time-picker-widget form-group">
+                        <div class='input-group date' id='due-date'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div id='lmp-picker' class="time-picker-widget form-group">
-                    <div class='input-group date' id='lmp-date'>
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
+                    <div id='lmp-picker' class="time-picker-widget form-group">
+                        <div class='input-group date' id='lmp-date'>
+                            <input type='text' class="form-control" />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>    
+
+                    <div id = 'bottom-btn-group'>
+                        <button id='btn-go' style='height:35px; font-weight:900; margin-left:5px'>
+                            GO <span class='glyphicon glyphicon-chevron-right'></span>
+                        </button>
+                        <br>
+                        <br>
+                        <a href='midwife-check.html'>Skip</a>
                     </div>
-                </div>    
-                <div id = 'bottom-btn-group'>
-                    <button id='btn-go' style='height:50px; font-weight:900'>
-                        GO <span class='glyphicon glyphicon-chevron-right'></span>
-                    </button>
-                    <br>
-                    <br>
-                    <a href='#' id='btn-visit-as-guest'>Skip</a>
-                </div>
+                </span>
             </div>
         </div>
     </body>

@@ -1,0 +1,81 @@
+<html>
+	<head>
+        <!-- Jquery -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <!-- Bootstrap + Fontawesome-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="../js/moment.js"></script>
+        <!-- Datepicker -->
+        <link rel="stylesheet" href="../external/datetimepicker/bootstrap-datetimepicker.min.css">
+        <script src ="../external/datetimepicker/bootstrap-datetimepicker.js"></script>
+        <!-- Selectpicker -->
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/css/bootstrap-select.min.css' rel='stylesheet' type='text/css'>
+        <script src ='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.7.3/js/bootstrap-select.min.js'></script>
+        <!-- Toastr -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' type='text/css'>
+        <!-- Querystring -->
+        <script src="../js/querystring.js"></script>
+        <!-- Stylesheets -->
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,900' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href="../styles/style.css">    
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Welcome To MatNav</title>
+
+        <style>
+            button {
+                width:100%;
+                height:40px;
+                margin-top:3px;
+                border:solid 1px rgba(0,0,0,0.1);
+                border-radius:5px;
+                background:#4aa197;
+                color:white;
+                outline:none;
+            }
+
+            .md-card { 
+                max-width:450px; 
+                position:relative;
+                margin:0 auto;
+            }
+            button span {
+                margin-left:12px;
+            }
+        </style>
+        <script>
+        $(document).ready(function(){
+            $('#yes').on('click', function(){
+                var qs = querystring.parse();
+                window.location = "timeline.html?" + querystring.stringify(qs);
+            });
+
+            $('#no').on('click', function(){
+                var qs = querystring.parse();
+                window.location = "gp-explanation.html?" + querystring.stringify(qs);
+            });
+        });
+        </script>
+	</head>
+	<body>
+        <div class='center-container'>
+            <div class='md-card' style='padding:5px 20px 20px'>
+                <h3>
+                    Do you have a Midwife?
+                </h3>
+                <button id='yes'>Yes <span class='glyphicon glyphicon-ok'></span></button>
+                <button id='no'>No <span class='glyphicon glyphicon-remove'></span></button>
+                <br>
+                <br>
+                <div class='well'>
+                    <b style='color:#4AA197'>What is a Midwife?</b>
+                    <br>
+                    A midwife is a nurse, who is trained to assist women in childbirth.
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

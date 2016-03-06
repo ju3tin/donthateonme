@@ -27,58 +27,128 @@
 
         <script>
             $(document).ready(function(){
-                var qs = querystring.parse();
-                console.log(qs.guest_pass);
-                // Button show
-                if (qs.guest_pass === 'true')
-                    $('#guest-btn-group').show();
-                if (qs.guest_pass === undefined)
-                    $('#non-guest-btn-group').show();
+                $('#timeline-btn').on('click', function(){
+                    var qs = querystring.parse();
+                    window.location = 'timeline.html?' + querystring.stringify(qs);
+                });
             });
         </script>
         <style>
+
+            .md-card {
+                /*max-width:450px;*/
+                /*margin:0 auto;*/
+            }
+
+            .row {
+                padding:4px 15px;
+            }
+            #main-span {
+                display:block; 
+                max-width:300px; 
+                position:relative; 
+                margin:0 auto;
+                font-weight:300; 
+                font-size:20px; 
+                text-align:center; 
+                padding:60px 10px;
+            }
+            h3, p {
+                text-align:center;
+            }
+            h3 {
+                margin-top:30px;
+                font-size:20px;
+            }
+            p {
+                font-weight:300;
+                font-size:16px;
+                margin-top:20px;
+            }
             button {
                 width:100%;
+                margin-top:5px;
                 height:40px;
-                margin-top:3px;
+                color:white;
+                background:#4AA197;
+                border:solid 1px rgba(0,0,0,0.1);
+                border-radius:4px;
+            }
+            .md-card.info-card {
+                /*min-height:180px;*/
+                padding:20px 30px;
+                max-width:450px;
+                position:relative;
+                margin:0 auto;
+                margin-top:20px;
+                border-bottom: solid 6px #4AA197;
+            }
+
+            div#expl-group {
+                max-width:450px;
+                height:auto;
+                position:relative;
+                margin:0 auto;
+            }
+
+            button:hover {
+                background:#14967C;
             }
         </style>
 	</head>
 	<body>
         <div class='center-container'>
-            <div class='md-card' style='padding:5px 20px 20px'>
-                <h3>
-                    What is a General Practitioner
-                </h3>
-                <p>
-                    Explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation 
-                </p>
-
-                <h3>
-                    You must go for a first appointment
-                </h3>
-                <p>
-                    Explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation 
-                </p>
-
-                <h3>
-                My rights to Antenatal Care
-                </h3>
-                <p>
-                    Explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation explanation 
-                </p>
-
-                <!--  -->
-                <div id='non-guest-btn-group' style='display:none'>
-                    <button>My Gp knows I'm pregnant</button><br>
-                    <a href=''><button>I still need to book my first appointment</button></a><br>
-                    <a href='gp-find.html'><button>Find me a GP</button></a>    
-                </div>
+            <div>
                 
-                <!-- If visiting as a guest-->
-                <div id='guest-btn-group' style='display:none'>
-                    <a href='timeline.html'><button>View Antenatal Care Timeline</button></a>
-                </div>    
+                <div class='row'>
+                    <span id='main-span' class='md-card'>
+                        To get a Midwife, you <b><u>must</u></b> be registered with a General Practitioner.
+                        <br>
+                        <br>
+                        <i class='fa fa-chevron-down' style='font-size:12px'></i>
+                    </span>
+                </div>
+                <br>
+
+                    <div class='md-card info-card'>
+                        <h3>
+                            What is a Midwife?
+                        </h3>
+                        <p>
+                            A midwife is a nurse, who is trained to assist women in childbirth.
+                        </p>
+                    </div>
+                    <div class='md-card info-card'>
+                        <h3>
+                            What is a General Practitioner?
+                        </h3>
+                        <p>
+                            A General Practitioner (GP) is a medical doctor who treats acute and chronic illnesses. If you are currently within the UK, you are entitled to register with a GP in your area
+                        </p>
+                    </div>
+
+                    <div class='md-card info-card'>
+                        <h3>
+                            You must go for a first appointment
+                        </h3>
+                        <p>
+                            If you're due date is while you are in the UK, and you would like to receive antenatal care, you must go to your GP. This may incur additional costs, so please ask your GP about where to get more information, it is your right to know these costs.
+                        </p>
+                    </div>
+                    <div class='md-card info-card'>
+                         <h3>
+                            My rights to Antenatal Care
+                        </h3>
+                        <p style='margin-bottom:30px'>
+                            If you are currently a resident in the UK. 
+                        </p>
+                    </div>
+                    <br>
+
+                    <div id='expl-group'>
+                        <button id ='timeline-btn'>View Antenatal Care Timeline <i class='fa fa-chevron-right'></i></button><br>
+                        <a href='http://www.nhs.uk/Service-Search/GP/LocationSearch/4'><button>Find a GP <i class='fa fa-chevron-right'></i></button></a>
+                    </div>
             </div>
         </div>
     </body>

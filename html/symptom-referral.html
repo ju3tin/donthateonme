@@ -26,21 +26,21 @@
         <title>I have Symptoms</title>
 
         <style>
-            #main-card {
+            h3 {
+                text-align:center;
+            }
+            .main-card {
                 padding:20px 20px 20px;
-                max-width:450px;
-                position:relative;
-                margin:0 auto;
             }
             .action-card {
                 text-align:center;    
             }
 
             .well {
-                background:#e74c3c;
                 color:white;
                 font-size:14px;
-                padding:10px;
+                padding:10px 10px 40px;
+                border-radius:0px;
             }   
                      
             button {
@@ -55,32 +55,69 @@
                 border-radius:2px;
                 font-weight:900;
             }
+            #back {
+                background:#4AA197;
+                color:white;
+                height:30px;
+                line-height:30px;
+                display:block;
+                max-width:200px;
+                text-align:center;
+                border-radius:2px;
+                position:relative;
+                margin:0 auto;
+                margin-top:12px;
+            }
+
+            @media screen and (max-width:767px) {
+                #non-urgent {
+                    margin-top:10px;
+                }
+            }
         </style>
 	</head>
 	<body>
         <div class='center-container'>
-            <div id='main-card' class='md-card'>
-                <h3 style='color:#e74c3c'>Urgent Symptoms</h3>
-                <ul>
-                    <li>I have vaginal bleeding</li>
-                    <li>My baby has stopped moving for x days</li>
-                </ul>
-                <div class='well action-card'>
-                    <h3 style='color:white'><i class="fa fa-exclamation-circle"></i> Please call 999 NOW</h3>
+            <div class='row'>
+                <div class='col-sm-6'>
+                    <div class='md-card main-card' style='margin-top:0'>
+                        <h3 style='color:#e74c3c'>Urgent Symptoms</h3>
+                        <ul style='min-height:130px'>
+                            <li>Extreme vomiting</li>
+                            <li>Intense abdominal pain</li>
+                            <li>Contractions OR lots of watery discharge</li>
+                            <li>Vaginal Bleeding</li>
+                            <li>Severe Headache</li>
+                            <li>Lack of fetal movement</li>
+                        </ul>
+                        <div class='well action-card' style='background:#e74c3c;'>
+                            <h3 style='color:white'><i class="fa fa-exclamation-circle"></i> Please call 999 NOW </h3>
+                            <br>
+                            <a id='find-gp' href='gp-find.html'>Call Now <i class='fa fa-chevron-right'></i></a><br>
+                        </div>
+                    </div>    
                 </div>
-                <h3 style='color:#e74c3c'>Non-Urgent Symptoms</h3>
-                <ul>
-                    <li>I have vaginal bleeding</li>
-                    <li>My baby has stopped moving for x days</li>
-                </ul>
-                <div class='well action-card'>
-                    <h3 style='color:white'><i class="fa fa-exclamation-circle"></i> Please visit your GP.</h3>
-                    <a id='find-gp' href='gp-find.html'>Find a GP now.</a><br>
+                
+                <div id='non-urgent' class='col-sm-6'>
+                    <div class='md-card main-card'>
+                        <h3 style='color:#5a5a5a'>Non-Urgent Symptoms</h3>
+                        <ul style='min-height:130px'>
+                            <li>Vaginal itching, burning, or redness, and excessive discharge that's creamy or white</li>
+                            <li>Itching all over your body, especially your hands and feet</li>
+                            <li>Pain or burning when you pee, frequent urination, urine that's cloudy or has blood in it</li>
+                        </ul>
+                        <div class='well action-card' style='background:#5a5a5a;'>
+                            <h3 style='color:white'><i class="fa fa-exclamation-circle"></i> Please visit your GP.</h3>
+                            <br>
+                            <a id='find-gp' href='gp-find.html'>Find a GP now  <i class='fa fa-chevron-right'></i></a><br>
+                        </div>
+                    </div>
                 </div>
-                <a href='#' onclick='history.go(-1)'>
-                    <i class='fa fa-chevron-left'></i> Go back
-                </a>    
             </div>
+
+            <a id='back' href='#' onclick='history.go(-1)'>
+                <i class='fa fa-chevron-left'></i> Go back
+            </a>    
         </div>
     </body>
 </html>

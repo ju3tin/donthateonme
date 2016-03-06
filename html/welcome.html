@@ -50,6 +50,7 @@
         #welcome-img {
             max-width:300px;
             max-height:300px;
+            width:100%;
             border-radius:100%;
         }
         
@@ -69,27 +70,33 @@
         }
         #symptoms-btn {
             background:#e74c3c;
-        }
-        /*#next {
-            max-width:220px;
-            width:100%;
-            height:40px;
-            border-radius:5px;
+        }   
+        select {
             outline:none;
-            border:solid 1px rgba(0,0,0,0.1);
-            background:#4AA197;
-            color:white;
-            margin-top:4px;
+            width:100%;
         }
-        #symptoms-btn {
+        .rotate-20 {
+            position: absolute;
+            -webkit-animation:spin 20s linear infinite;
+            -moz-animation:spin 20s linear infinite;
+            animation:spin 20s linear infinite;
+        }
+        .rotate-60 {
+            position: absolute;
+            -webkit-animation:spin 60s linear infinite;
+            -moz-animation:spin 60s linear infinite;
+            animation:spin 60s linear infinite;
+        }
+        @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+        @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+        @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
-        }*/
         </style>
 	</head>
 	<body>
         <div class='center-container'>
             <div id='main-card' class='md-card'>
-                <image id='welcome-img' width="300" src="../images/welcome.jpg" style='border:solid 1px rgba(0,0,0,0.1)'></image>
+                <image id='welcome-img' src="../images/icon.png" style='border:solid 1px rgba(0,0,0,0.1)'></image>
                 <br>
                 <h2>Welcome to MatNav</h2>
                 <h5 style='max-width:250px; margin:0 auto'>
@@ -107,7 +114,7 @@
                 </button>    
                 <br>
                 <a href='symptom-referral.html'>
-                    <button id ='symptoms-btn'><i class="fa fa-exclamation-circle animated infinite pulse"></i> I have Symptoms</button></a>
+                    <button id ='symptoms-btn'><i class="fa fa-exclamation-triangle animated infinite pulse"></i> I have Symptoms</button></a>
                 <br>
             </div>
         </div>
