@@ -30,7 +30,7 @@
                 text-align:center;
             }
             .main-card {
-                padding:20px 20px 20px;
+                padding:20px 20px 5px;
             }
             .action-card {
                 text-align:center;    
@@ -58,8 +58,8 @@
             #back {
                 background:#4AA197;
                 color:white;
-                height:30px;
-                line-height:30px;
+                height:40px;
+                line-height:40px;
                 display:block;
                 max-width:200px;
                 text-align:center;
@@ -67,6 +67,16 @@
                 position:relative;
                 margin:0 auto;
                 margin-top:12px;
+
+                transition: all 0.20s ease-in-out;
+                -webkit-transition: all 0.20s ease-in-out;
+                -moz-transition: all 0.20s ease-in-out;
+                -ms-transition: all 0.20s ease-in-out;
+                -o-transition: all 0.20s ease-in-out;
+            }
+
+            #back:hover {
+                background:#1abc9c
             }
 
             @media screen and (max-width:767px) {
@@ -80,7 +90,7 @@
         <div class='center-container'>
             <div class='row'>
                 <div class='col-sm-6'>
-                    <div class='md-card main-card' style='margin-top:0'>
+                    <div class='md-card main-card' style='margin-top:0;border-bottom: solid 6px #e74c3c;'>
                         <h3 style='color:#e74c3c'>Urgent Symptoms</h3>
                         <ul style='min-height:130px'>
                             <li>Extreme vomiting</li>
@@ -99,7 +109,7 @@
                 </div>
                 
                 <div id='non-urgent' class='col-sm-6'>
-                    <div class='md-card main-card'>
+                    <div class='md-card main-card' style='border-bottom: solid 6px #5a5a5a;'>
                         <h3 style='color:#5a5a5a'>Non-Urgent Symptoms</h3>
                         <ul style='min-height:130px'>
                             <li>Vaginal itching, burning, or redness, and excessive discharge that's creamy or white</li>
@@ -115,7 +125,7 @@
                 </div>
             </div>
 
-            <a id='back' href='#' onclick='history.go(-1)'>
+            <a id='back' href='welcome.html' style='margin-top:30px'>
                 <i class='fa fa-chevron-left'></i> Go back
             </a>    
         </div>

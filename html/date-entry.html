@@ -129,9 +129,9 @@
                         var dueDate = $('#due-date').data("DateTimePicker").date().utc().format('YYYY MM DD');
                         var diffInDays = now.diff(dueDate, 'days', true);
 
-                        var divClass = calculateClass(diffInDays);
+                        var id = calculateClass(diffInDays);
                         var qs = {
-                            "div_class" : divClass
+                            "id" : id
                         };
                         console.log(qs);
 
@@ -144,9 +144,9 @@
                         var diffInDays = now.diff(lmp, 'days', true);
                         // Naegeles rule -- approx + 280
                         diffInDays += 280;
-                        var divClass = calculateClass(diffInDays);
+                        var id = calculateClass(diffInDays);
                         var qs = {
-                            "div_class" : divClass
+                            "id" : id
                         };
                         console.log(qs);
 

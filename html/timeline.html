@@ -18,6 +18,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<!-- Querystring -->
     <script src="../js/querystring.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,900' rel='stylesheet' type='text/css'>
+
 	<style>
 		h2 span {
 			background:#4AA197;
@@ -52,6 +54,14 @@
 			position: relative;
 			top: 50%;
 			transform: translateY(-50%);
+			-ms-transform: translateY(-50%); /* IE 9 */
+            -webkit-transform: translateY(-50%); /* Chrome, Safari, Opera */
+
+			transition: all 0.40s ease-in-out;
+			-webkit-transition: all 0.40s ease-in-out;
+			-moz-transition: all 0.40s ease-in-out;
+			-ms-transition: all 0.40s ease-in-out;
+			-o-transition: all 0.40s ease-in-out;
 		}
 		
 		.cd-read-more {
@@ -61,10 +71,37 @@
 			width:100%;
 			text-decoration:none !important;
 			background:#5a5a5a !important;
-			transition: all 0.4s ease-in-out;
+			
+			transition: all 0.40s ease-in-out;
+			-webkit-transition: all 0.40s ease-in-out;
+			-moz-transition: all 0.40s ease-in-out;
+			-ms-transition: all 0.40s ease-in-out;
+			-o-transition: all 0.40s ease-in-out;
 		}
 		.cd-read-more:hover {
 			background:rgba(0,0,0,0.5) !important;
+		}
+
+		.overlay-btn {
+			position:fixed;
+			width:100px;
+			text-align:center;
+			padding:10px;
+			border-radius:0px 0px 5px 5px;
+			top:0;
+			background:#00796B;
+			color:white;
+			left:80%;
+			z-index:100000000;
+			transition: all 0.40s ease-in-out;
+			-webkit-transition: all 0.40s ease-in-out;
+			-moz-transition: all 0.40s ease-in-out;
+			-ms-transition: all 0.40s ease-in-out;
+			-o-transition: all 0.40s ease-in-out;
+		}
+
+		.overlay-btn:hover {
+			background:#009688;
 		}
 	</style>
 	<script>
@@ -73,7 +110,7 @@
 		}
 		$(document).ready(function(){
 			var qs = querystring.parse();
-			for (var i = 0; i < qs.div_class; i++) {
+			for (var i = 1; i <= qs.id; i++) {
 				$('#step-' + i).hide();
 			}
 			$('.important').show();
@@ -81,6 +118,13 @@
 			$('.important .important-hide').hide();
 			$('.important .cd-timeline-img').css('background', '#e74c3c');
 			$('.important .cd-timeline-img').html('<i class="fa fa-exclamation-circle"></i>');
+
+			$('.overlay-btn').on('click', function(){
+				for (var i = 1; i < 15; i++) {
+					$('#step-' + i).show();
+				}
+				$('#timeline-your').hide();
+			});
 		});
 		
 
@@ -92,11 +136,17 @@
 	<header style='background:#4AA197; color:white'>
 		<h1 style='font-size:20px'>
 			<i class="fa fa-clock-o"></i>
-			Your Timeline
+			<span id ='timeline-your'>Your</span> Timeline
 		</h1>
 	</header>
 
 	<section id="cd-timeline" class="cd-container">
+		<a href='#'>
+			<div class='overlay-btn'>
+				View All <i class='glyphicon glyphicon-chevron-right'></i>
+			</div>
+		</a>
+
 		<div id='step-1' class="cd-timeline-block important">
 			<div class="cd-timeline-img">
 				<i class="fa fa-calendar-o"></i>
